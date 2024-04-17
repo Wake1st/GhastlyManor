@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ncf8mpmsgxf"]
+
+[ext_resource type="PackedScene" uid="uid://dsq5ann3ege5d" path="res://assets/standing_lamp.gltf" id="1_3orxt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sr5s1"]
+size = Vector3(0.125751, 5, 0.125732)
+
+[node name="StandingLamp" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000686638, 2.49219, -0.00012207)
+shape = SubResource("BoxShape3D_sr5s1")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_3orxt")]
