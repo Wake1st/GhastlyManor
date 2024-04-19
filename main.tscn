@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4iad1nj0y1ex"]
+
+[ext_resource type="PackedScene" uid="uid://ewuixbcaumiu" path="res://steam.tscn" id="1_72rme"]
+[ext_resource type="Script" path="res://main.gd" id="1_xubpp"]
+[ext_resource type="Script" path="res://steam.gd" id="2_4yyhx"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_xubpp")
+
+[node name="Steam" parent="." instance=ExtResource("1_72rme")]
+script = ExtResource("2_4yyhx")
+
+[node name="Host" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 189.0
+offset_bottom = 60.0
+text = "HOST"
+
+[node name="Refresh" type="Button" parent="."]
+offset_left = 201.0
+offset_top = 8.0
+offset_right = 377.0
+offset_bottom = 60.0
+text = "REFRESH"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[node name="LobbyContainer" type="ScrollContainer" parent="."]
+offset_left = 13.0
+offset_top = 68.0
+offset_right = 377.0
+offset_bottom = 452.0
+
+[node name="Lobbies" type="VBoxContainer" parent="LobbyContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
